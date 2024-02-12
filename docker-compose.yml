@@ -1,0 +1,26 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - PGDATA=/tmp
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/transfers
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      - RUBYOPT=-W:no-deprecated -W:no-experimental
+      - RAILS_ENV=development
+    stdin_open: true
+    tty: true

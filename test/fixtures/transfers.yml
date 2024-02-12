@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  counterparty_name: MyString
+  counterparty_iban: MyString
+  counterparty_bic: MyString
+  amount_cents: 1
+  bank_account_id: 1
+  description: MyString
+
+two:
+  counterparty_name: MyString
+  counterparty_iban: MyString
+  counterparty_bic: MyString
+  amount_cents: 1
+  bank_account_id: 1
+  description: MyString
